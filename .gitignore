@@ -127,3 +127,6 @@ dist
 .pnp.*
 
 .dccache
+
+postgres_data/
+mysql_data/

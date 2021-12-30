@@ -12,7 +12,6 @@ jobs:
         with:
           node-version: 14.x
       - run: npm ci
-      - run: npm run build
   automerge:
     needs: build
     runs-on: ubuntu-latest

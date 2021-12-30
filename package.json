@@ -5,8 +5,17 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js",
-    "lint": "eslint"
+    "start": "NODE_ENV=production node index.js",
+    "lint": "eslint",
+    "docker-postgres:start": "docker compose up -d postgres",
+    "docker-postgres:exec": "docker-compose exec postgres bash",
+    "docker-pgadmin:start": "docker compose up -d pgadmin",
+    "docker-mysql:start": "docker-compose up -d mysql",
+    "docker-phpmyadmin:start": "docker-compose up -d phpmyadmin",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -21,9 +30,15 @@
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "faker": "^5.5.3",
-    "joi": "^17.5.0"
+    "joi": "^17.5.0",
+    "mysql2": "^2.3.3",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.12.4",
+    "sequelize-cli": "^6.3.0"
   },
   "engines": {
     "node": "14.x"

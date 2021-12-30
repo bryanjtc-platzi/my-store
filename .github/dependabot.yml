@@ -9,6 +9,6 @@ updates:
     schedule:
       interval: 'monthly'
       day: 'friday'
-    open-pull-requests-limit: 11
+    open-pull-requests-limit: 16
     allow:
       - dependency-type: 'direct'
