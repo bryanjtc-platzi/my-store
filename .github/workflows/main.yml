@@ -16,5 +16,5 @@ jobs:
           heroku_app_name: "platzi-my-store" #Must be unique in Heroku
           heroku_email: "bryan.thomas25000@icloud.com"
         env:
-          DATABASE_URL: ${{secrets.DATABASE_URL}
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
       - run: heroku sequelize-cli db:migrate
