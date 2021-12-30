@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js",
+    "start": "NODE_ENV=production node index.js",
     "lint": "eslint",
     "docker-postgres:start": "docker compose up -d postgres",
     "docker-postgres:exec": "docker-compose exec postgres bash",
