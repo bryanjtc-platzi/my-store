@@ -17,4 +17,4 @@ jobs:
           heroku_email: "bryan.thomas25000@icloud.com"
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
-      - run: heroku sequelize-cli db:migrate
+      - run: heroku run npm run migrations:run
