@@ -2,7 +2,7 @@
 
 const { CUSTOMER_TABLE } = require('./../models/customer.model');
 const { USER_TABLE } = require('./../models/user.model');
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
 
 module.exports = {
   up: async (queryInterface) => {
