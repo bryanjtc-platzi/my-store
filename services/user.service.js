@@ -1,13 +1,21 @@
 const boom = require('@hapi/boom');
+const bcrypt = require('bcrypt');
 
 //const getConnection = require('../libs/postgres');
 const { models } = require('./../libs/sequelize');
 
 class UserService {
-  constructor() {}
+  constructor() {
+    this.salt = 10;
+  }
 
   async create(data) {
-    const newUser = await models.User.create(data);
+    const hash = await bcrypt.hash(data.password, this.salt);
+    const newUser = await models.User.create({
+      ...data,
+      password: hash,
+    });
+    delete newUser.dataValues.password;
     return newUser;
   }
 
@@ -17,6 +25,13 @@ class UserService {
     //return rta.rows;
     const rta = await models.User.findAll({
       include: ['customer'],
+    });
+    return rta;
+  }
+
+  async findByEmail(email) {
+    const rta = await models.User.findOne({
+      where: { email },
     });
     return rta;
   }
