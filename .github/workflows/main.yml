@@ -17,4 +17,8 @@ jobs:
           heroku_email: "bryan.thomas25000@icloud.com"
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
+          API_KEY: ${{secrets.API_KEY}}
+          JWT_SECRET: ${{secrets.JWT_SECRET}}
+          SMTP_EMAIL: ${{secrets.SMTP_EMAIL}}
+          SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
       - run: heroku run npm run migrations:run
