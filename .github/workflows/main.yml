@@ -22,9 +22,3 @@ jobs:
           SMTP_EMAIL: ${{secrets.SMTP_EMAIL}}
           SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
       - run: heroku run npm run migrations:run
-  automerge:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Merge
-        uses: KeisukeYamashita/auto-renovate-pull-request-merge@v1
